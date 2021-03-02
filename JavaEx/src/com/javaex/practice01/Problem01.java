@@ -6,10 +6,10 @@ public class Problem01 {
 
 	public static void main(String[] args) {
 		//problemOne();
-		//problemTwo();
+		problemTwo();
 		//problemThree();
 		//problemFour();
-		problemFive();
+		//problemFive();
 	}
 	
 	private static void problemOne() {
@@ -45,8 +45,8 @@ public class Problem01 {
 	
 	private static void problemFour() {
 		for(int i = 0; i<10; i++) {
-			for(int j = i+1; j<=i+10; j++) {
-				System.out.printf("%d\t",j);
+			for(int j = 1; j<=10; j++) {
+				System.out.printf("%d\t",j+i);
 			}
 			System.out.println();
 		}
