@@ -13,29 +13,48 @@ public class LoopEx {
 		//continueEx();
 		//breakEx();
 		//nestedFor();
-		//nestedForStar();
-		sixRandom();
+		nestedForStar();
+		//sixRandom();
 	}
 	
 	private static void sixRandom() {
+		/*
 		for(int i = 1; i <= 6; i++) {
 			//System.out.println(Math.random());
 			System.out.println((int)(Math.random() * 45) + 1);
 		}
+		*/
 		
 		//while
+		int count = 6;
+		while(count-- > 0) {
+			System.out.println((int)(Math.random() * 45) + 1);
+		}
 	}
 	
 	private static void nestedForStar() {
 		int rowCount = 5;
+		/*
 		for(int row = 1; row <= rowCount; row++) {
 			for(int col = 1; col <= row; col++) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}	
+		*/
 		
 		// while
+		int row = 1;
+		int col = 1;
+		while(row <= rowCount) {
+			while(col <= row) {
+				System.out.print("*");
+				col++;
+			}
+			col=1;
+			System.out.println();
+			row++;
+		}
 		
 	}
 	
