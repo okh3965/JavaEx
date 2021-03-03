@@ -3,6 +3,7 @@ package com.javaex.oop.goods.v2;
 public class GoodsApp {
 
 	public static void main(String[] args) {
+		/*
 		Goods notebook = new Goods();
 		notebook.name = "LG Gram";
 		notebook.price = 1500000;
@@ -17,6 +18,7 @@ public class GoodsApp {
 		System.out.printf("%s, %d원%n", 
 				smartphone.name,
 				smartphone.price);
+		*/
 	}
 
 }
