@@ -1,12 +1,19 @@
-package com.javaex.oop.goods.v2;
+package com.javaex.oop.goods.v3;
 
-// v2. 필드 접근 제한
-// getter, setter를 이용한 필드 우회 접근
+// v3. 생성자
+// new 키워드와 함께 사용되고 객체의 초기화를 담당한다.
 public class Goods {
 	// 필드
-	// public > protected > default > private
 	private String name;
 	private int price;
+
+	//코드 내에 생성자가 하나도 없으면 기본 생성자를 추가한다.
+	//사용자 정의 생성자가 있으면 기본 생성자를 추가하지 않는다.
+	//모든 필드를 초기화하는 생성자
+	public Goods(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
 	
 	//Getter , Setter
 	public String getName() {
