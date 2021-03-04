@@ -15,14 +15,16 @@ public class Problem05 {
 		int count = 0;
 				
 		for(int i = 0; i < scoreboard.length; i++) {
-			for(int j = 0; j < scoreboard[0].length; j++) {
+			for(int j = 0; j < scoreboard[i].length; j++) {
 				if(scoreboard[i][j] >= 85) {
 					count++;
 					sum += scoreboard[i][j];
 				}
 			}
 		}
-		System.out.printf("총 합: %d 평균: %d", sum, sum/count);
+		
+		System.out.println("합: " + sum);
+		System.out.printf("평균: %.2f%n", ((double)sum / count));
 	}
 
 }
