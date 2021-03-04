@@ -7,7 +7,6 @@ public class Problem08 {
 	public static void main(String[] args) {
 
 		int sum = 0;
-		boolean flag = false;
 		Scanner scanner = new Scanner(System.in);
 		while(true) {
 			System.out.println("----------------------");
@@ -15,16 +14,18 @@ public class Problem08 {
 			System.out.println("----------------------");
 			System.out.print("선택>");
 			int num = scanner.nextInt();
+			int money;
+			boolean flag = false;
 			switch(num) {
 			case 1:
 				System.out.print("예금액>");
-				int in = scanner.nextInt();
-				sum += in;
+				money = scanner.nextInt();
+				sum += money;
 				break;
 			case 2:
 				System.out.print("출금액>");
-				int out = scanner.nextInt();
-				sum -= out;
+				money = scanner.nextInt();
+				sum -= money;
 				break;		
 			case 3:
 				System.out.println("잔고액>" + sum);

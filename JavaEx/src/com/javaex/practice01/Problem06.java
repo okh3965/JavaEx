@@ -10,13 +10,9 @@ public class Problem06 {
 		System.out.println("숫자를 입력하세요.");
 		int num = scanner.nextInt();
 		int sum = 0;
-		for(int i = 1; i <= num; i++) {
-			if(num%2==0 && i%2==0) {
-				sum += i;
-			}
-			else if(num%2==1 && i%2==1){
-				sum += i;
-			}
+		int start = num % 2 == 0 ? 2 : 1;
+		for(int i = start; i <= num; i+=2) {		
+			sum += i;			
 		}
 		
 		System.out.print("결과값 : " + sum);
