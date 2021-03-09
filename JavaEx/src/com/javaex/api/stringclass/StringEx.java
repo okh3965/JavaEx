@@ -3,8 +3,8 @@ package com.javaex.api.stringclass;
 public class StringEx {
 
 	public static void main(String[] args) {
-		//stringBasic();
-		//usefulMethods();
+//		stringBasic();
+//		usefulMethods();
 		stringBufferEx();
 	}
 	

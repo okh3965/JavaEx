@@ -36,6 +36,7 @@ public class HashTableEx {
 		
 		// 반복자 활용
 		Iterator<String> it = map.keySet().iterator();
+		
 		while(it.hasNext()) {
 			ClassRoom item = map.get(it.next());
 			System.out.println(item);
@@ -48,7 +49,6 @@ public class HashTableEx {
 		// 비우기
 		map.clear();
 		System.out.println("MAP:" + map);
-		
 		
 	}
 

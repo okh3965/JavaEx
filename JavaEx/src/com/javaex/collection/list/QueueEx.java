@@ -9,13 +9,13 @@ public class QueueEx {
 		// Queue는 인터페이스, 실체 클래스는 티르스
 		Queue<Integer> queue = new LinkedList<>();
 		
-		// 데이터 제공
+		// data inqueue
 		for(int i = 0; i < 10; i++) {
 			queue.offer(i);
 			System.out.println("QUEUE:" + queue);
 		}
 		
-		// 데이터 확인
+		// data dequeue & confirm
 		int item = queue.peek();
 		System.out.println("PEEK:" + item);
 		System.out.println("QUEUE:" + queue);

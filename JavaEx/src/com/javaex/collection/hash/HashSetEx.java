@@ -27,8 +27,8 @@ public class HashSetEx {
 		
 		Student s4 = new Student("Hong", 10);	//같은값을 가진다 하더라도 추가됨 
 		hs.add(s4);
-		System.out.println("hashcode of s1 " + s1.hashCode());	//s1 memory addr
-		System.out.println("hashcode of s4 " + s4.hashCode());	//s4 momory addr
+		System.out.println("hashcode of s1 " + s1.hashCode());	//s1 memory address
+		System.out.println("hashcode of s4 " + s4.hashCode());	//s4 memory address
 		System.out.println("s1 equals s4 ? " + s1.equals(s4));
 		
 		System.out.println("학생부:" + hs);
