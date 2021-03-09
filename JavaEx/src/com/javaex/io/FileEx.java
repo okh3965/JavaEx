@@ -5,7 +5,7 @@ import java.io.IOException;
 
 
 // File class
-// file info 
+// confirm file info 
 // create & delete file, directory
 public class FileEx {
 	// 현재 프로젝트 내의 루트 디렉터리 위치
