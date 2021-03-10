@@ -56,7 +56,7 @@ public class VectorEx {
 		}
 		System.out.println();
 		
-		// Vector -> Enumeration을 받아와서 순회
+		// Vector -> Enumeration을 받아와서 순회 -> 메모리 접근 효율이 좋다.
 		Enumeration<Integer> e = v.elements();
 		
 		while (e.hasMoreElements()) {	// 뒤에 담긴 객체가 더 있는가
