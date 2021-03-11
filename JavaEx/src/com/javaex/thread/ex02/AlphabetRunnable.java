@@ -1,5 +1,6 @@
 package com.javaex.thread.ex02;
 
+// run 메서드만 구현, Thread의 생성자로 전달
 public class AlphabetRunnable implements Runnable {
 
 	@Override

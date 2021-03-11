@@ -17,6 +17,8 @@ public class MainThread {
 		
 		// to maintain control of the working thread
 		// 작업 흐름을 main 스레드에 합류
+		
+		
 		try {
 			thread.join();
 			thread2.join();
