@@ -13,7 +13,8 @@ public class PhoneView {
 	}
 	
 	//methods
-	public void mainView() {
+	public static void mainView() {
+		PhoneRepository pr = new PhoneRepository();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("*******************************");
 		System.out.println("        전화번호 관리 프로그램        ");
@@ -25,6 +26,7 @@ public class PhoneView {
 			int num = scanner.nextInt();
 			switch(num){
 			case 1:
+				pr.PhoneList();
 				break;
 			case 2:
 				break;
