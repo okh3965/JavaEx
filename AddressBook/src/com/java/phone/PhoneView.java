@@ -1,9 +1,5 @@
 package com.java.phone;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.Reader;
-import java.io.Writer;
 import java.util.Scanner;
 
 public class PhoneView {
@@ -12,7 +8,7 @@ public class PhoneView {
 	
 	
 	// constructor
-	public void PhoneView() {
+	public PhoneView() {
 		
 	}
 	

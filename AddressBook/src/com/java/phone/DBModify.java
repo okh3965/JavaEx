@@ -1,9 +1,12 @@
 package com.java.phone;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,18 +23,47 @@ public class DBModify {
 	}
 	
 	//methods
+	public void DBLoad() {
+		lst.clear();
+		Reader reader = null;
+		BufferedReader br =null;
+		
+		try {
+			reader = new FileReader(phoneDB);
+			br = new BufferedReader(reader);
+			
+			String line = null;
+			while((line = br.readLine()) != null) {
+				String[] parse = line.split(",");
+				Person nextPerson = new Person(parse[0],parse[1],parse[2]);
+				lst.add(nextPerson);
+			}
+		} catch(FileNotFoundException e) {
+			System.err.println("file does not found");
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			try{
+				br.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void DBUpdate() {
 		Writer writer = null;
 		BufferedWriter bw = null;
 		
 		Iterator<Person> i = lst.iterator();
 		try {
-			writer = new FileWriter(phoneDB);
+			writer = new FileWriter(phoneDB, false);
 			bw = new BufferedWriter(writer);
 
 			while(i.hasNext()) {
 				Person nextPerson = i.next();
-				String form = nextPerson.name + ',' + nextPerson.mobilePhoneNum +
+				String form = nextPerson.name + ',' + 
+						nextPerson.mobilePhoneNum +
 						',' + nextPerson.PhoneNum;
 				bw.write(form);
 				bw.newLine();
@@ -51,7 +83,8 @@ public class DBModify {
 		}
 	}
 
-	public void DBInsert(String name, String mPhone, String Phone) {				
+	public void DBInsert(String name, String mPhone, String Phone) {	
+		DBLoad();
 		Person person = new Person(name, mPhone, Phone);
 		lst.add(person);
 		System.out.print(lst);
@@ -60,6 +93,7 @@ public class DBModify {
 	}
 	
 	public void DBDelete(int num) {
+		DBLoad();
 		lst.remove(num);
 		System.out.println(lst);		
 		System.out.println("[삭제되었습니다.]");
