@@ -10,36 +10,23 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class ServerThread extends Thread{
+
+	// Actual communications manager thread
+	private Socket socket;
 	
-	public static void main(String[] args) {
-		// server socket
-		ServerSocket serverSocket = null;
-		
+	// constructor
+	public ServerThread(Socket socket) {
+		this.socket = socket;
+	}
+
+	// Thread logic
+	@Override
+	public void run() {
+		//----- Start of Working Thread Logic
 		try {
-			//	bind - ip connect
-			serverSocket = new ServerSocket();
-			InetSocketAddress ips = new InetSocketAddress("0.0.0.0", 10000);
-			serverSocket.bind(ips);
-			
-			// start message
-			System.out.println("<Server Start>");
-			System.out.println("SERVER: [wait for connecting..]");
-			
-			// wait
-			while(true) {
-				Socket socket = serverSocket.accept();
-				Thread thread = new ServerThread(socket);
-				thread.start();
-			}
-			
-			
-			
-			/*
-			//----- Start of Working Thread Logic
 			// verify client information
 			InetSocketAddress socketAddress =
 					//verify remote socket address
@@ -81,21 +68,14 @@ public class Server {
 			
 			bw.close();
 			br.close();
-			//----- End of Working Thread Logic 
-			*/
-			
-			
-			// post-processing
-//			System.out.println("SERVER: [Server terminated]");
-		} catch(Exception e ) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				serverSocket.close();
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
 		}
+		//----- End of Working Thread Logic 
 	}
+	
+	
+	
+	
 
 }
