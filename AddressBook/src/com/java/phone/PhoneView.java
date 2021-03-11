@@ -1,5 +1,9 @@
 package com.java.phone;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.Scanner;
 
 public class PhoneView {
@@ -17,6 +21,8 @@ public class PhoneView {
 		PhoneRepository pr = new PhoneRepository();
 		DBModify dm =new DBModify();
 		Scanner scanner = new Scanner(System.in);
+
+		
 		System.out.println("*******************************");
 		System.out.println("        전화번호 관리 프로그램        ");
 		System.out.println("*******************************");
@@ -28,7 +34,7 @@ public class PhoneView {
 			switch(menu){
 			case 1:
 				System.out.println("<1.리스트>");
-				pr.PhoneList(dm.lst);
+				pr.PhoneList();
 				break;
 			case 2:
 				System.out.println("<2.등록>");
@@ -52,7 +58,7 @@ public class PhoneView {
 				System.out.println("<4.검색>");
 				System.out.print(">이름:");
 				String find = scanner.next();
-				pr.PhoneListFilter(dm.lst, find);
+				pr.PhoneListFilter(find);
 				break;
 			case 5:
 				System.out.println("<5.종료>");
@@ -64,7 +70,7 @@ public class PhoneView {
 				System.out.println("[다시입력해주세요]");
 			}
 			if(menu==5) {
-				scanner.close();
+				scanner.close();				
 				break;
 				}
 		}

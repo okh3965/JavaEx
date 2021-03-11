@@ -18,10 +18,9 @@ public class PhoneRepository {
 	}
 	
 	//methods
-	public void PhoneList(List<Person> lst) {
-		Reader reader = null; 
-		BufferedReader br = null;
-		
+	public void PhoneList() {
+		Reader reader = null;
+		BufferedReader br= null;
 		try {
 			reader = new FileReader(phoneDB);
 			br = new BufferedReader(reader);
@@ -49,10 +48,9 @@ public class PhoneRepository {
 		}
 	}
 	
-	public void PhoneListFilter(List<Person> lst, String find) {
+	public void PhoneListFilter(String find) {		
 		Reader reader = null;
-		
-		BufferedReader br = null;
+		BufferedReader br= null;
 		
 		try {
 			reader = new FileReader(phoneDB);		

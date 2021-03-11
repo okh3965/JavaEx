@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DBModify {
@@ -19,20 +20,24 @@ public class DBModify {
 	}
 	
 	//methods
-	public void DBInsert(String name, String mPhone, String Phone) {
-		
+	public void DBUpdate() {
 		Writer writer = null;
+		BufferedWriter bw = null;
 		
-		BufferedWriter bw = null;		
-		Person person = new Person(name, mPhone, Phone);
-		String form = name + "," + mPhone + "," + Phone;		
-		lst.add(person);
-		System.out.println(lst);
+		Iterator<Person> i = lst.iterator();
 		try {
-			writer = new FileWriter(phoneDB, true);
+			writer = new FileWriter(phoneDB);
 			bw = new BufferedWriter(writer);
-			bw.write(form);
-			bw.newLine();
+
+			while(i.hasNext()) {
+				Person nextPerson = i.next();
+				String form = nextPerson.name + ',' + nextPerson.mobilePhoneNum +
+						',' + nextPerson.PhoneNum;
+				bw.write(form);
+				bw.newLine();
+//				System.out.println(i.next());
+			}
+			
 		} catch(FileNotFoundException e) {
 			System.err.println("file does not found");
 		} catch(IOException e) {
@@ -40,19 +45,25 @@ public class DBModify {
 		} finally {
 			try {
 				bw.close();
-			} catch(Exception e) {
+			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
+	}
+
+	public void DBInsert(String name, String mPhone, String Phone) {				
+		Person person = new Person(name, mPhone, Phone);
+		lst.add(person);
 		System.out.print(lst);
 		System.out.println("[등록되었습니다.]");
+		DBUpdate();
 	}
 	
-	public void DBDelete(int num) {	
+	public void DBDelete(int num) {
 		lst.remove(num);
-		System.out.println(lst);
+		System.out.println(lst);		
 		System.out.println("[삭제되었습니다.]");
+		DBUpdate();
 	}
 	
 	
