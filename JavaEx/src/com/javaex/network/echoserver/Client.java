@@ -12,6 +12,7 @@ import java.io.Writer;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
 
@@ -43,16 +44,41 @@ public class Client {
 			Reader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			
+			/////////////
+			//Echo back//
+			/////////////
 			// message sending
-			String message = "test message";
-			bw.write(message);
-			bw.newLine();
-			bw.flush();
-			System.out.println("CLIENT:[message]: " + message);
+//			String message = "test message";
+//			bw.write(message);
+//			bw.newLine();
+//			bw.flush();
+//			System.out.println("CLIENT:[message]: " + message);
+//			
+//			// message receiving
+//			String rcvMsg = br.readLine();
+//			System.out.println("CLIENT:[received message]:" + rcvMsg);
 			
-			// message receiving
-			String rcvMsg = br.readLine();
-			System.out.println("CLIENT:[received message]:" + rcvMsg);
+	
+			// receive message from user -> send to server
+			Scanner scanner = new Scanner(System.in);
+			while(true) {
+				System.out.print("CLIENT:>");
+				String message = scanner.nextLine();	// one line message input
+				if(message.equals("/q")) {
+					//escape
+					System.out.println("CLIENT: [Shut Down Connection]");
+					break;
+				}
+				System.out.println("CLIENT: [message sent]: " + message);
+				bw.write(message);
+				bw.newLine();
+				bw.flush();
+				
+				String rcvMsg = br.readLine();
+				System.out.println("CLIENT: [message received]: " + rcvMsg);
+			}
+				
+			scanner.close();
 			
 			br.close();
 			bw.close();
