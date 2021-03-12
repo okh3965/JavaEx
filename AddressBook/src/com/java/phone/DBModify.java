@@ -94,11 +94,14 @@ public class DBModify {
 	
 	public void DBDelete(int num) {
 		DBLoad();
-		lst.remove(num);
+		try {
+			lst.remove(num);
+		} catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
 		System.out.println(lst);		
 		System.out.println("[삭제되었습니다.]");
 		DBUpdate();
 	}
-	
 	
 }
