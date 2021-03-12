@@ -95,7 +95,7 @@ public class DBModify {
 	public void dbDelete(int num) {
 		dbLoad();
 		try {
-			lst.remove(num);
+			lst.remove(num-1);
 		} catch(IndexOutOfBoundsException e) {
 			e.printStackTrace();
 		}

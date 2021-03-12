@@ -39,6 +39,14 @@ public class ClassRoom {
 		}
 		return super.equals(obj);
 	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 	
 	
 
