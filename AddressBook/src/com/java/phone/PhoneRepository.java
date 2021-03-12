@@ -17,7 +17,7 @@ public class PhoneRepository {
 	}
 	
 	//methods
-	public void PhoneList() {
+	public void phoneList() {
 		Reader reader = null;
 		BufferedReader br= null;
 		try {
@@ -47,7 +47,7 @@ public class PhoneRepository {
 		}
 	}
 	
-	public void PhoneListFilter(String find) {		
+	public void phoneListFilter(String find) {		
 		Reader reader = null;
 		BufferedReader br= null;
 		

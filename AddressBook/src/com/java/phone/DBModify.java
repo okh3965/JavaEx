@@ -23,7 +23,7 @@ public class DBModify {
 	}
 	
 	//methods
-	public void DBLoad() {
+	public void dbLoad() {
 		lst.clear();
 		Reader reader = null;
 		BufferedReader br =null;
@@ -51,7 +51,7 @@ public class DBModify {
 		}
 	}
 	
-	public void DBUpdate() {
+	public void dbUpdate() {
 		Writer writer = null;
 		BufferedWriter bw = null;
 		
@@ -83,17 +83,17 @@ public class DBModify {
 		}
 	}
 
-	public void DBInsert(String name, String mPhone, String Phone) {	
-		DBLoad();
+	public void dbInsert(String name, String mPhone, String Phone) {	
+		dbLoad();
 		Person person = new Person(name, mPhone, Phone);
 		lst.add(person);
 		System.out.print(lst);
 		System.out.println("[등록되었습니다.]");
-		DBUpdate();
+		dbUpdate();
 	}
 	
-	public void DBDelete(int num) {
-		DBLoad();
+	public void dbDelete(int num) {
+		dbLoad();
 		try {
 			lst.remove(num);
 		} catch(IndexOutOfBoundsException e) {
@@ -101,7 +101,7 @@ public class DBModify {
 		}
 		System.out.println(lst);		
 		System.out.println("[삭제되었습니다.]");
-		DBUpdate();
+		dbUpdate();
 	}
 	
 }

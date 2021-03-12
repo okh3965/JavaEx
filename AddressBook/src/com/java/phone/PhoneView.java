@@ -30,7 +30,7 @@ public class PhoneView {
 			switch(menu){
 			case 1:
 				System.out.println("<1.리스트>");
-				pr.PhoneList();
+				pr.phoneList();
 				break;
 			case 2:
 				System.out.println("<2.등록>");
@@ -41,20 +41,20 @@ public class PhoneView {
 				System.out.print(">집전화:");
 				String PhoneNum = scanner.next();
 				System.out.println();
-				dm.DBInsert(name, mPhoneNum, PhoneNum);
+				dm.dbInsert(name, mPhoneNum, PhoneNum);
 				break;
 			case 3:
 				System.out.println("<3.삭제>");
 				System.out.print(">번호:");
 				int num = scanner.nextInt();
 				System.out.println();
-				dm.DBDelete(num);
+				dm.dbDelete(num);
 				break;
 			case 4:
 				System.out.println("<4.검색>");
 				System.out.print(">이름:");
 				String find = scanner.next();
-				pr.PhoneListFilter(find);
+				pr.phoneListFilter(find);
 				break;
 			case 5:
 				System.out.println("<5.종료>");
