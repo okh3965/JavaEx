@@ -5,12 +5,11 @@ import java.util.Scanner;
 public class PhoneView {
 
 	// field
-	
+	PhoneRepository pr = new PhoneRepository();
+	DBModify dm =new DBModify();
 	
 	// constructor
-	public PhoneView() {
-		
-	}
+	public PhoneView(){}
 	
 	//methods
 	public void startView() {
@@ -26,16 +25,11 @@ public class PhoneView {
 	}
 	
 	public void listView() {
-		PhoneRepository pr = new PhoneRepository();
 		System.out.println("<1.리스트>");
 		pr.phoneList();
 	}
 	
 	public void registerView(Scanner sc) {
-		
-		DBModify dm =new DBModify();
-
-		
 		System.out.println("<2.등록>");
 		System.out.print(">이름");
 		String name = sc.next();
@@ -48,9 +42,6 @@ public class PhoneView {
 	}
 	
 	public void deleteView(Scanner sc) {
-		
-		DBModify dm =new DBModify();
-		
 		System.out.println("<3.삭제>");
 		System.out.print(">번호:");
 		int num = sc.nextInt();
@@ -58,10 +49,7 @@ public class PhoneView {
 		dm.dbDelete(num);
 	}
 	
-	public void searchView(Scanner sc) {
-		
-		PhoneRepository pr = new PhoneRepository();
-		
+	public void searchView(Scanner sc) {				
 		System.out.println("<4.검색>");
 		System.out.print(">이름:");
 		String find = sc.next();
