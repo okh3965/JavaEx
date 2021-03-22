@@ -27,9 +27,9 @@ public class HRSearchEmployees {
 			String sql = "SELECT emp.first_name, emp.last_name, " 
 			+ "emp.email, emp.phone_number, emp.hire_date " 
 			+ "FROM employees emp "
-			+ "WHERE emp.first_name LIKE " 
+			+ "WHERE lower(emp.first_name) LIKE " 
 			+ "\'%" + find + "%\' "
-			+ "OR emp.last_name LIKE "
+			+ "OR lower(emp.last_name) LIKE "
 			+ "\'%" + find + "%\' "			
 			+ "ORDER BY emp.first_name DESC";
 
@@ -61,13 +61,11 @@ public class HRSearchEmployees {
 				rs.close();
 				stmt.close();
 				conn.close();
-				sc.close();
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
-		
+		sc.close();
 	}
 
 }
